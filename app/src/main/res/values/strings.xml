@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">CloverAnime</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="radioBottom_option1">Option 1</string>
+    <string name="radioBottom_option2">Option 2</string>
+    <string name="radioBottom_option3">Option 3</string>
+    <string name="radioBottom_option4">Option 4</string>
+    <string name="radioBottom_option5">Option 5</string>
+    <string name="radioBottom_option6">Option 6</string>
+    <string name="radioBottom_option7">Option 7</string>
+    <string name="radioBottom_option8">Option 8</string>
+    <string name="radioBottom_option9">Option 9</string>
+    <string name="radioBottom_monoschinos">MonosChinos</string>
+    <string name="radioBottom_animeflv">AnimeFLV</string>
+
+    <string name="menu_item_emision">Emisión</string>
+    <string name="menu_item_inicio">Inicio</string>
+    <string name="menu_item_directorio">Calendario</string>
+    <string name="menu_item_favoritos">Mi Lista</string>
+    <string name="title_dialog_server">Servidores</string>
+    <string name="title_dialog_provider">Proveedores</string>
+    <string name="text_dialog_cancel">Cancelar</string>
+    <string name="cerrar_dialog">Cerrar</string>
+    <string name="singinBtn_dialog">iniciar sesión</string>
+    <string name="saveBtn_dialog">Guardar</string>
+    <string name="loadBtn_dialog">Cargar</string>
+    <string name="title_detalles">Detalles</string>
+    <string name="text_linearProgress">Cargando Episodios</string>
+    <string name="text_buttom_add">Agregar</string>
+    <string name="text_buttom_episodes">Episodios</string>
+
+    <string name="item_tab_favoritos">Favoritos</string>
+    <string name="item_tab_pendientes">Pendientes</string>
+    <string name="item_tab_finalizados">Terminados</string>
+    <string name="item_tab_emison">Emisión</string>
+    <string name="item_tab_animes">Animes</string>
+
+    <string name="mensaje_error">Sin Resultados</string>
+    <string name="mensaje_search">Escribe almenos 3 caracteres</string>
+</resources>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
+    android:background="@drawable/border_radius"
+    android:layout_marginVertical="6dp"
+    android:orientation="horizontal">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/newsImage_height"
+        app:cardCornerRadius="16dp">
+
+        <ImageView
+            android:id="@+id/ivNewsPortada"
+            android:layout_width="@dimen/newsImage_width"
+            android:layout_height="@dimen/newsImage_height"
+            android:scaleType="centerCrop"
+            android:background="@color/black">
+
+        </ImageView>
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvNewsType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="4dp"
+            android:textColor="@color/Subtittle_color"
+            android:textSize="@dimen/newsType"
+            tools:text="Anime" />
+
+        <TextView
+            android:id="@+id/tvNewsTittle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="4dp"
+            android:layout_marginVertical="@dimen/newsMV_Tittle"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/text_color_principal"
+            android:textSize="@dimen/newsTittle"
+            android:textStyle="bold"
+            tools:text="Shimoneta to Iu Gainen ga Sonzai Shinai Taikutsu na Sekai"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_calendar"
+                app:tint="@color/Subtittle_color" />
+
+            <TextView
+                android:id="@+id/tvNewsFecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:textColor="@color/Subtittle_color"
+                android:textSize="@dimen/newsType"
+                tools:text="Anime" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
+

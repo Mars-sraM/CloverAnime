@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detailContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color_app"
+    tools:ignore="MissingDefaultResource">
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/detailFramePortada"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ivPortada"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop">
+
+        </ImageView>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient" />
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linear1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/detailLinear1_height"
+        android:layout_marginTop="-22dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/border_radius_detail"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/frameLayout">
+
+        <TextView
+            android:id="@+id/tvAnimeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/detailAnimeImage_width"
+            android:layout_marginEnd="5dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/text_color_principal"
+            android:textSize="@dimen/detailAnimeName"
+            android:textStyle="bold"
+            tools:text="Shimoneta to Iu Gainen ga Sonzai Shinai Taikutsu na Sekai" />
+
+        <TextView
+            android:id="@+id/tvAnimeAño"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/detailAnimeImage_width"
+            android:layout_marginTop="5dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/text_color_principal"
+            android:textSize="@dimen/detailsecondText"
+            tools:text="Anime" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/linear1"
+        app:layout_constraintStart_toStartOf="parent">
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/background_color_app"
+            app:cardCornerRadius="8dp">
+            <ImageView
+                android:id="@+id/ivAnimeImg"
+                android:layout_width="@dimen/detailAnimeImage_width"
+                android:layout_height="@dimen/detailAnimeImage_height"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                android:background="@color/black" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:shimmer_auto_start="true">
+
+                <View
+                    android:id="@+id/loadingAnimeImg"
+                    android:layout_width="@dimen/detailAnimeImage_width"
+                    android:layout_height="@dimen/detailAnimeImage_height"
+                    android:background="@color/shimmer_color"/>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear1">
+
+        <LinearLayout
+            android:id="@+id/constrain2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/loadingLinearBottoms"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="13dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/linearBottomsPadding">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="125dp"
+                        android:layout_height="40dp"
+                        android:layout_marginHorizontal="5dp"
+                        app:cardBackgroundColor="@color/shimmer_color"
+                        app:cardCornerRadius="16dp" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
+                        android:layout_marginHorizontal="5dp"
+                        app:cardBackgroundColor="@color/shimmer_color"
+                        app:cardCornerRadius="16dp" />
+                </LinearLayout>
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <LinearLayout
+                android:id="@+id/linearBottoms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="13dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/linearBottomsPadding"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/tvDetalles"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <Button
+                    android:id="@+id/addButtom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:backgroundTint="@color/color_botoms"
+                    android:drawableLeft="@drawable/ic_add_anime"
+                    android:text="@string/text_buttom_add"
+                    android:textColor="@color/text_color_principal"
+                    android:textSize="@dimen/detailsecondText" />
+
+
+                <Button
+                    android:id="@+id/buttomCap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:backgroundTint="@color/color_botoms"
+                    android:drawableLeft="@drawable/ic_list_episodes"
+                    android:text="@string/text_buttom_episodes"
+                    android:textColor="@color/text_color_principal"
+                    android:textSize="@dimen/detailsecondText">
+
+                </Button>
+
+
+            </LinearLayout>
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="13dp"
+                app:dividerColor="@color/divider_color"
+                app:layout_constraintBottom_toTopOf="@id/tvDetalles"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/linearBottoms">
+
+            </com.google.android.material.divider.MaterialDivider>
+
+            <TextView
+                android:id="@+id/tvDetalles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="13dp"
+                android:paddingVertical="8dp"
+                android:text="@string/title_detalles"
+                android:textColor="@color/text_color_principal"
+                android:textSize="@dimen/detailDetalles"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/linear2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/linearBottoms" />
+
+            <LinearLayout
+                android:id="@+id/linear2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="13dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDetalles">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_star"
+                            app:tint="@color/icon_color" />
+
+                        <TextView
+                            android:id="@+id/tvScore"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_color_principal"
+                            android:textSize="@dimen/detailsecondText"
+                            tools:text="3.4" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/divider_color" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_type"
+                            app:tint="@color/icon_color" />
+
+                        <TextView
+                            android:id="@+id/tvType"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_color_principal"
+                            android:textSize="@dimen/detailsecondText"
+                            tools:text="Anime" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/divider_color" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_status"
+                            app:tint="@color/icon_color" />
+
+                        <TextView
+                            android:id="@+id/tvStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_color_principal"
+                            android:textSize="@dimen/detailsecondText"
+                            tools:text="Anime" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCategoriesDatail"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/detailGenres_height"
+                android:layout_marginHorizontal="13dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/linear2"
+                tools:layout_height="35dp">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <TextView
+                android:id="@+id/tvSynapsis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="13dp"
+                android:layout_marginVertical="8dp"
+                android:layout_marginBottom="5dp"
+                android:scrollbars="vertical"
+                android:textSize="@dimen/detailSynapses"
+                android:textColor="@color/text_color_principal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvCategoriesDatail"
+                tools:text="rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

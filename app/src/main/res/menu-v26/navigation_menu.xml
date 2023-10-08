@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/inicioFragment"
+        android:icon="@drawable/ic_home"
+        android:title="@string/menu_item_inicio">
+
+    </item>
+
+    <item
+        android:id="@+id/emisionFragment"
+        android:icon="@drawable/ic_status"
+        android:title="@string/menu_item_emision">
+
+    </item>
+
+    <item
+        android:id="@+id/calendarFragment"
+        android:icon="@drawable/ic_calendar"
+        android:title="@string/menu_item_directorio">
+
+    </item>
+    <item
+        android:id="@+id/myListFragment"
+        android:icon="@drawable/ic_favorite"
+        android:title="@string/menu_item_favoritos">
+
+    </item>
+
+</menu>

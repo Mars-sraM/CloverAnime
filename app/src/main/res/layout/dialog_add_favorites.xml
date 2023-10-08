@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/border_radius"
+    android:orientation="vertical"
+    android:padding="20dp">
+    <CheckBox
+        android:id="@+id/rbFavoritos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:button="@drawable/custom_icon_favorite"
+        app:buttonTint="@color/icon_color"
+        android:padding="10dp"
+        android:text="@string/item_tab_favoritos"
+        android:textColor="@color/text_color_principal">
+
+    </CheckBox>
+
+    <CheckBox
+        android:id="@+id/rbPendientes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:button="@drawable/custom_icon_pendientes"
+        android:padding="10dp"
+        app:buttonTint="@color/icon_color"
+        android:text="@string/item_tab_pendientes"
+        android:textColor="@color/text_color_principal">
+
+    </CheckBox>
+
+    <CheckBox
+        android:id="@+id/rbTerminados"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:button="@drawable/custom_icon_terminados"
+        android:padding="10dp"
+        app:buttonTint="@color/icon_color"
+        android:text="@string/item_tab_finalizados"
+        android:textColor="@color/text_color_principal">
+
+    </CheckBox>
+
+
+</LinearLayout>

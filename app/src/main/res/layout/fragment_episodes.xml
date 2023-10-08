@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.view.fragments.EpisodesFragment"
+    android:background="@color/background_color_app"
+    android:focusable="true"
+    android:clickable="true">
+
+    <LinearLayout
+        android:id="@+id/Linearlayour"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/ivRegresar"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="6dp"
+            android:gravity="center_vertical"
+            android:padding="9dp"
+            android:src="@drawable/ic_regresar"
+            app:tint="@color/icon_color"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginStart="15dp"
+            android:gravity="center_vertical"
+            android:text="@string/title_detalles"
+            android:textColor="@color/text_color_principal"
+            android:textSize="@dimen/episodeTittleDetalles" />
+
+        <Button
+            android:id="@+id/ivRevers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color_principal"
+            android:textSize="@dimen/detailsecondText"
+            android:backgroundTint="@color/color_botoms"
+            android:drawableLeft="@drawable/ic_arrowupdown"
+            android:layout_marginHorizontal="5dp"
+            tools:text="Episodios: 12"/>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvEpisodes"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Linearlayour"
+        tools:listitem="@layout/item_episodes" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/linearMensage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/color_botoms"
+            android:padding="8dp"
+            android:gravity="center">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:scrollbarSize="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="@string/text_linearProgress"
+                android:textSize="18sp"
+                android:layout_marginStart="15dp"
+                android:textColor="@color/text_color_principal" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,111 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "418115e0341ab644490acb8a9001fd48",
+    "entities": [
+      {
+        "tableName": "anime_favorite_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`animeUrl` TEXT NOT NULL, `animeName` TEXT NOT NULL, `animeimg` TEXT NOT NULL, `animeType` TEXT NOT NULL, PRIMARY KEY(`animeUrl`))",
+        "fields": [
+          {
+            "fieldPath": "animeUrl",
+            "columnName": "animeUrl",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "animeName",
+            "columnName": "animeName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "animeimg",
+            "columnName": "animeimg",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "animeUrl"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "anime_pending_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`animeUrl` TEXT NOT NULL, `animeName` TEXT NOT NULL, `animeimg` TEXT NOT NULL, `animeType` TEXT NOT NULL, PRIMARY KEY(`animeUrl`))",
+        "fields": [
+          {
+            "fieldPath": "animeUrl",
+            "columnName": "animeUrl",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "animeName",
+            "columnName": "animeName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "animeimg",
+            "columnName": "animeimg",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "animeUrl"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "anime_finished_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`animeUrl` TEXT NOT NULL, `animeName` TEXT NOT NULL, `animeimg` TEXT NOT NULL, PRIMARY KEY(`animeUrl`))",
+        "fields": [
+          {
+            "fieldPath": "animeUrl",
+            "columnName": "animeUrl",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "animeName",
+            "columnName": "animeName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "animeimg",
+            "columnName": "animeimg",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "animeUrl"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '418115e0341ab644490acb8a9001fd48')"
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color_app"
+    tools:context=".ui.view.MainActivity"
+    android:id="@+id/ContainerPrincipal">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:navGraph="@navigation/main_graph"
+        app:defaultNavHost="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/frameLayout"/>
+    <FrameLayout
+        android:id="@+id/frameContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/frameLayout">
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:foregroundGravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="-16dp">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavView"
+            style="@style/Widget.Material3.BottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
+            app:itemTextAppearanceActive="@style/BottomNavigationView.Active"
+            android:background="@color/colorPrimaryVariant"
+            app:itemIconTint="@color/Subtittle_color"
+            app:itemTextColor="@color/Subtittle_color"
+            app:menu="@menu/navigation_menu">
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

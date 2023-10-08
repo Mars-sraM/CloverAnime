@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginVertical="4dp"
+    android:layout_marginStart="4dp"
+    android:background="@drawable/border_radius">
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp">
+            <ImageView
+                android:id="@+id/ivEpisode"
+                android:layout_width="@dimen/episodeImage_width"
+                android:layout_height="@dimen/episodeImage_height"
+                android:scaleType="centerCrop"
+                android:background="@color/black"/>
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvCapName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:ellipsize="end"
+                tools:text="Shimoneta to Iu Gainen ga Sonzai Shinai Taikutsu na Sekai"
+                android:textColor="@color/text_color_principal"
+                android:padding="8dp"/>
+            <TextView
+                android:id="@+id/tvNoCapitulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:padding="5dp"
+                tools:text="Anime"
+                android:textColor="@color/Subtittle_color"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivVisto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_no_visto"
+            android:padding="10dp"
+            app:tint="@color/icon_color"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

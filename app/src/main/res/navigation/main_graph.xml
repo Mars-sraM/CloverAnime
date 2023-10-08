@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/inicioFragment">
+
+    <fragment
+        android:id="@+id/inicioFragment"
+        android:name="com.mars.cloveranime.ui.view.fragments.InicioFragment"
+        android:label="fragment_inicio"
+        tools:layout="@layout/fragment_inicio" />
+    <fragment
+        android:id="@+id/emisionFragment"
+        android:name="com.mars.cloveranime.ui.view.fragments.EmisionFragment"
+        android:label="fragment_emision"
+        tools:layout="@layout/fragment_emision" />
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.mars.cloveranime.ui.view.fragments.CalendarFragment"
+        android:label="fragment_calendar"
+        tools:layout="@layout/fragment_calendar" />
+    <fragment
+        android:id="@+id/myListFragment"
+        android:name="com.mars.cloveranime.ui.view.fragments.MyListFragment"
+        android:label="MyListFragment" />
+</navigation>

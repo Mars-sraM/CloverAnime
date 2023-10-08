@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "885486002722",
+    "project_id": "cloveranime",
+    "storage_bucket": "cloveranime.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:885486002722:android:ad91814a3dc24a163f207b",
+        "android_client_info": {
+          "package_name": "com.mars.cloveranime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "885486002722-jg6ku61f9nn72k9nchvghgccrgq7v4mi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtWZE0tqfguenMNUHbDRKGJlFOnOT4lHU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "885486002722-jg6ku61f9nn72k9nchvghgccrgq7v4mi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
