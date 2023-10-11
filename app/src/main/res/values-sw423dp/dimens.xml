@@ -40,5 +40,4 @@
     <dimen name="favoritesImage_height">240dp</dimen>
 
     <dimen name="imageSearch_height">175dp</dimen>
-
 </resources>
