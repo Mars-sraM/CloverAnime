@@ -20,13 +20,11 @@
     <dimen name="detailLinear1_height">100dp</dimen>
     <dimen name="detailAnimeImage_width">104dp</dimen>
     <dimen name="detailAnimeImage_height">154dp</dimen>
-    <dimen name="detailAnimeName">16sp</dimen>
-    <dimen name="detailsecondText">13sp</dimen>
-    <dimen name="detailTextGenres">14sp</dimen>
+    <dimen name="detailAnimeName">18sp</dimen>
+    <dimen name="detailsecondText">15sp</dimen>
     <dimen name="linearBottomsPadding">10dp</dimen>
-    <dimen name="detailDetalles">22sp</dimen>
+    <dimen name="detailDetalles">24sp</dimen>
     <dimen name="detailGenres_height">35dp</dimen>
-    <dimen name="detailSynapses">13sp</dimen>
     <dimen name="detailSynapses_height">240dp</dimen>
 
     <dimen name="episodeImage_width">130dp</dimen>
@@ -36,7 +34,7 @@
     <dimen name="iconReverse_height">20dp</dimen>
 
     <dimen name="favoritesTittle">22sp</dimen>
-    <dimen name="favoritesAnimeTittle">14sp</dimen>
+    <dimen name="favoritesAnimeTittle">16sp</dimen>
     <dimen name="favoritesImage_height">240dp</dimen>
 
     <dimen name="imageSearch_height">175dp</dimen>

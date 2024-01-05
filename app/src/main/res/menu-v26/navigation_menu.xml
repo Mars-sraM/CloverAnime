@@ -15,8 +15,8 @@
     </item>
 
     <item
-        android:id="@+id/calendarFragment"
-        android:icon="@drawable/ic_calendar"
+        android:id="@+id/directoryFragment"
+        android:icon="@drawable/ic_video_library"
         android:title="@string/menu_item_directorio">
 
     </item>

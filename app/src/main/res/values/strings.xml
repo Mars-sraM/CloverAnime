@@ -17,11 +17,11 @@
 
     <string name="menu_item_emision">Emisión</string>
     <string name="menu_item_inicio">Inicio</string>
-    <string name="menu_item_directorio">Calendario</string>
+    <string name="menu_item_directorio">Directorio</string>
     <string name="menu_item_favoritos">Mi Lista</string>
     <string name="title_dialog_server">Servidores</string>
     <string name="title_dialog_provider">Proveedores</string>
-    <string name="text_dialog_cancel">Cancelar</string>
+    <string name="text_dialog_info">Información</string>
     <string name="cerrar_dialog">Cerrar</string>
     <string name="singinBtn_dialog">iniciar sesión</string>
     <string name="saveBtn_dialog">Guardar</string>
@@ -39,4 +39,7 @@
 
     <string name="mensaje_error">Sin Resultados</string>
     <string name="mensaje_search">Escribe almenos 3 caracteres</string>
+
+    <string name="label_dropdown">Generos</string>
+
 </resources>

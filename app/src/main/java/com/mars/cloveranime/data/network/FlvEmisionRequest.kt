@@ -26,8 +26,9 @@ class FlvEmisionRequest {
                 val capitulo = doc.getElementsByClass("Capi").eq(i).text()
                 val capituloNo = capitulo.replace("Episodio ", "")
                 val animeType = "Anime"
-                val url1 = capUrl.replace("ver", "anime")
+                val url1 = capUrl.replace("/ver/", "/anime/")
                 val animeUrl = url1.replace("-$capituloNo", "")
+
                 //Log.i("data", "img: $imgUrl, title: $title, animeUrl: $animeUrl")
 
                 list.add(CapEmisionModel(title, imgUrl, capituloNo, animeType, AnimeUrl( capUrl, animeUrl)))

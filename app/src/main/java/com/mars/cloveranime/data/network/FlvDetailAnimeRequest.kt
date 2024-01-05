@@ -94,6 +94,33 @@ class FlvDetailAnimeRequest {
 
         return animeDetailPart2
     }
+    fun detailAnimeModalDialog(url: String): DetailAnimeModelPart2 {
+        try {
+            val doc = Jsoup.connect(url).userAgent("Mozilla/5.0")
+                .header("Cache-Control", "no-cache").get()
+            val imageUrl = doc.getElementsByClass("Image").select("img").attr("src")
+            val title = doc.select("div.Container > h1.Title").text()
+            val date = doc.getElementsByClass("Description")
+                .select("p").text()
+
+            animeDetailPart2 = DetailAnimeModelPart2(
+                title,
+                "https://www3.animeflv.net$imageUrl",
+                date,
+                url)
+
+            //Log.i("data", "img: ${""}, title: $title, animeUrl: $url")
+
+        } catch (e: HttpStatusException) {
+            val statusCode: Int = e.statusCode
+            if (statusCode == 404) {
+                println("La URL no existe: $url")
+                // Muestra un mensaje personalizado para el error 404
+            }
+        }
+
+        return animeDetailPart2
+    }
     private fun existUrl(url: String): Boolean {
         var urlExists = true
         val huc = URL(url).openConnection() as HttpURLConnection
@@ -123,4 +150,11 @@ class FlvDetailAnimeRequest {
             animesPart2
         }
     }
+    suspend fun requestDeatilAnimeModalDialog(url: String): DetailAnimeModelPart2 {
+        return withContext(Dispatchers.IO) {
+            val animesPart2 = detailAnimeModalDialog(url)
+            animesPart2
+        }
+    }
+
 }

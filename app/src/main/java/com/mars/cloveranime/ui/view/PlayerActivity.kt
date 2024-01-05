@@ -4,14 +4,17 @@ import android.annotation.SuppressLint
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.graphics.Color
+import android.net.http.SslError
 import android.os.Bundle
 import android.os.Message
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
+import android.webkit.SslErrorHandler
 import android.webkit.WebChromeClient
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
+import android.webkit.WebResourceResponse
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -28,74 +31,67 @@ import com.mars.cloveranime.ui.viewModel.DetailViewModel
 class PlayerActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_URL = "extra_url"
-        const val EXTRA_OPTION = "extra_option"
+        const val EXTRA_OPTION = "extra_videoUrl"
         const val EXTRA_PROVIDER = "extra_provider"
     }
 
-    private val detailViewModel: DetailViewModel by viewModels()
     lateinit var binding: ActivityPlayerBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPlayerBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val episodeUrl: String = intent.getStringExtra(EXTRA_URL).orEmpty()
+        val animeUrl: String = intent.getStringExtra(EXTRA_URL).orEmpty()
         val provider: String = intent.getStringExtra(EXTRA_PROVIDER).orEmpty()
-        val option: Int = intent.getIntExtra(EXTRA_OPTION, -1)
+        val videoUrl: String = intent.getStringExtra(EXTRA_OPTION).orEmpty()
         hideSystemUI()
-        getDetail(episodeUrl, option, provider)
+        getDetail(animeUrl, videoUrl, provider)
 
     }
 
     @SuppressLint("SetJavaScriptEnabled")
-    fun getDetail(url: String, option: Int, provider: String) {
+    fun getDetail(url: String, videoUrl: String, provider: String) {
 
-        detailViewModel.addVideosEpisodes(url, option, provider)
-        detailViewModel.episodesVideoModel.observe(this, Observer {
-            var video = ""
-            when (provider) {
-                "MonosChinos" -> video = "https://monoschinos2.com/reproductor?url=$it"
-                "AnimeFLV" -> video = it
+        val settings = binding.wvPlayer.settings
+        binding.wvPlayer.setBackgroundColor(Color.TRANSPARENT)
+        settings.javaScriptEnabled = true
+        settings.allowContentAccess = true
+        settings.setSupportMultipleWindows(true)
+        settings.cacheMode = WebSettings.LOAD_DEFAULT
+
+        binding.wvPlayer.webChromeClient = object : WebChromeClient() {
+            override fun onCreateWindow(
+                view: WebView?,
+                isDialog: Boolean,
+                isUserGesture: Boolean,
+                resultMsg: Message?
+            ): Boolean {
+                return super.onCreateWindow(view, isDialog, isUserGesture, resultMsg)
             }
-
-            val settings = binding.wvPlayer.settings
-            binding.wvPlayer.setBackgroundColor(Color.TRANSPARENT)
-            settings.javaScriptEnabled = true
-            settings.allowContentAccess = true
-            settings.setSupportMultipleWindows(true)
-            settings.cacheMode = WebSettings.LOAD_DEFAULT
-
-            binding.wvPlayer.webChromeClient = object : WebChromeClient() {
-                override fun onCreateWindow(
-                    view: WebView?,
-                    isDialog: Boolean,
-                    isUserGesture: Boolean,
-                    resultMsg: Message?
-                ): Boolean {
-                    return super.onCreateWindow(view, isDialog, isUserGesture, resultMsg)
+        }
+        binding.wvPlayer.webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(
+                view: WebView?,
+                request: WebResourceRequest?
+            ): Boolean {
+                if (view!!.url != videoUrl) {
+                    view.stopLoading()
+                    return super.shouldOverrideUrlLoading(view, request)
+                } else {
+                    return super.shouldOverrideUrlLoading(view, request)
                 }
             }
-            binding.wvPlayer.webViewClient = object : WebViewClient() {
-                override fun shouldOverrideUrlLoading(
-                    view: WebView?,
-                    request: WebResourceRequest?
-                ): Boolean {
-                    if (view!!.url != video) {
-                        view.stopLoading()
-                        return super.shouldOverrideUrlLoading(view, request)
-                    } else {
-                        return super.shouldOverrideUrlLoading(view, request)
-                    }
-                }
 
-                override fun onPageFinished(view: WebView?, url: String?) {
-                    binding.wvPlayer.visibility = View.VISIBLE
+            override fun onPageFinished(view: WebView?, url: String?) {
+                binding.wvPlayer.visibility = View.VISIBLE
+                if (view!!.title.equals("")) {
+                    Toast.makeText(applicationContext, "Error al cargar el video ", Toast.LENGTH_LONG).show()
                 }
-
             }
 
-            binding.wvPlayer.loadUrl(video)
-            saveWatch(url, provider)
-        })
+        }
+
+        binding.wvPlayer.loadUrl(videoUrl)
+        saveWatch(url, provider)
     }
 
     private fun saveWatch(url: String, provider: String) {

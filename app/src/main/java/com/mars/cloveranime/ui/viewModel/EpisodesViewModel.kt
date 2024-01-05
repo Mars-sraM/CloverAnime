@@ -22,16 +22,16 @@ class EpisodesViewModel: ViewModel() {
         viewModelScope.launch {
             when(provider){
                 "MonosChinos" -> {
-                    isloading.postValue(true)
+                    isloading.postValue(false)
                     val animeDetail = episodesUseCase.episodesPage1UseCase(url)
                     episodeslModel.postValue(animeDetail)
-                    isloading.postValue(false)
+                    isloading.postValue(true)
                 }
                 "AnimeFLV" -> {
-                    isloading.postValue(true)
+                    isloading.postValue(false)
                     val animeDetail = flvEpisodesUseCase.episodesPage1UseCase(url)
                     episodeslModel.postValue(animeDetail)
-                    isloading.postValue(false)
+                    isloading.postValue(true)
                 }
             }
         }

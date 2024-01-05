@@ -50,6 +50,7 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxLines="2"
+                    android:fontFamily="@font/asap"
                     android:textColor="@color/text_color_principal"
                     android:textSize="14sp"
                     android:textStyle="bold"
@@ -60,6 +61,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
+                    android:fontFamily="@font/asap"
                     android:maxLines="2"
                     android:textColor="@color/text_color_principal"
                     android:textSize="12sp"
@@ -97,6 +99,7 @@
             android:backgroundTint="@color/color_botoms"
             android:drawableLeft="@drawable/ic_cloud_upload"
             android:text="@string/saveBtn_dialog"
+            android:fontFamily="@font/asap"
             android:textColor="@color/text_color_principal" />
 
         <Button
@@ -107,6 +110,7 @@
             android:backgroundTint="@color/color_botoms"
             android:drawableLeft="@drawable/ic_cloud_download"
             android:text="@string/loadBtn_dialog"
+            android:fontFamily="@font/asap"
             android:textColor="@color/text_color_principal" />
 
     </LinearLayout>
@@ -118,6 +122,7 @@
         android:layout_marginTop="10dp"
         android:padding="7dp"
         android:text="@string/cerrar_dialog"
+        android:fontFamily="@font/asap"
         android:textColor="@color/color_botoms_dialog"
         android:textSize="15sp"
         android:textStyle="bold"

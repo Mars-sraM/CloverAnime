@@ -13,7 +13,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="@dimen/imageSearch_height"
-        app:cardCornerRadius="16dp">
+        app:cardCornerRadius="8dp">
 
         <ImageView
             android:id="@+id/ivAnimePortada"
@@ -34,7 +34,7 @@
         android:layout_marginVertical="3dp"
         android:ellipsize="end"
         android:maxLines="2"
-
+        android:fontFamily="@font/asap"
         android:textColor="@color/text_color_principal"
         tools:text="Shimoneta to Iu Gainen ga Sonzai Shinai Taikutsu na Sekai"/>
 
@@ -46,5 +46,6 @@
         android:layout_marginBottom="8dp"
         android:textColor="@color/Subtittle_color"
         android:textSize="12sp"
+        android:fontFamily="@font/asap"
         tools:text="Anime"/>
 </LinearLayout>

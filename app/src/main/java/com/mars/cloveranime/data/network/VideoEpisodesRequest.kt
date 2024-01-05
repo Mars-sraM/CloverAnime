@@ -1,6 +1,8 @@
 package com.mars.cloveranime.data.network
 
 import android.util.Log
+import com.mars.cloveranime.data.model.AnimeVideoServer
+import com.mars.cloveranime.data.model.Server
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.jsoup.Jsoup
@@ -10,56 +12,39 @@ import java.io.IOException
 class VideoEpisodesRequest {
     var idVideos: String = ""
     var serverSize: Int = 0
+    private var listServer = mutableListOf<Server>()
     lateinit var elements: Elements
-    fun videoEpisodes(url: String, index: Int): String {
-        try {
-            val doc = Jsoup.connect(url).userAgent("Mozilla/5.0")
-                .header("Cache-Control", "no-cache").get()
-            elements = doc.select("div.playother")
-
-            for (i in 0 until elements.size) {
-                idVideos = getEpisodes("p.play-video", index, "data-player")
-
-                //Log.i("data", "img: $idVideos")
-
-            }
-
-        } catch (e: IOException) {
-            print(e)
-        }
-        return idVideos
-    }
-
-    fun size(url: String): Int {
+    fun videoEpisodes(url: String): AnimeVideoServer {
         try {
             val doc = Jsoup.connect(url).userAgent("Mozilla/5.0")
                 .header("Cache-Control", "no-cache").get()
             elements = doc.select("div.playother")
             serverSize = elements.select("p.play-video").size
-            Log.i("data", "img: $idVideos")
+            listServer = emptyList<Server>().toMutableList()
+            for (i in 0 until serverSize) {
+                val video = elements.select("p.play-video")
+                    .eq(i)
+                    .attr("data-player")
+                val titleServer = elements.select("p.play-video")
+                    .eq(i)
+                    .text()
+                listServer.add(Server(
+                    titleServer,
+                    "https://monoschinos2.com/reproductor?url=$video")
+                )
+                //Log.i("data", "img: $idVideos")
+            }
+
         } catch (e: IOException) {
             print(e)
         }
-        return serverSize
+        return AnimeVideoServer(serverSize, listServer)
     }
 
-    private fun getEpisodes(query: String, index: Int, attributekey: String): String {
-        val video = elements.select(query)
-            .eq(index)
-            .attr(attributekey)
-        return video
-    }
-
-    suspend fun requesvideoEpisodes(url: String, index: Int): String {
+    suspend fun requesvideoEpisodes(url: String): AnimeVideoServer {
         return withContext(Dispatchers.IO) {
-            val videos = videoEpisodes(url, index)
+            val videos = videoEpisodes(url)
             videos
-        }
-    }
-    suspend fun serverSize(url: String): Int{
-        return withContext(Dispatchers.IO) {
-            val size = size(url)
-            size
         }
     }
 }

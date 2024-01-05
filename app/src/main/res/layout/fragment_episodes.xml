@@ -32,10 +32,11 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginStart="15dp"
             android:gravity="center_vertical"
+            android:fontFamily="@font/asap"
             android:text="@string/title_detalles"
             android:textColor="@color/text_color_principal"
             android:textSize="@dimen/episodeTittleDetalles" />
@@ -46,6 +47,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/text_color_principal"
             android:textSize="@dimen/detailsecondText"
+            android:fontFamily="@font/asap"
             android:backgroundTint="@color/color_botoms"
             android:drawableLeft="@drawable/ic_arrowupdown"
             android:layout_marginHorizontal="5dp"
@@ -61,6 +63,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Linearlayour"
+        android:visibility="gone"
+        tools:visibility="visible"
         tools:listitem="@layout/item_episodes" />
 
 
@@ -86,17 +90,42 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
+                android:progressTint="@color/color_botoms_dialog"
                 android:scrollbarSize="10dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
+                android:fontFamily="@font/asap"
                 android:text="@string/text_linearProgress"
                 android:textSize="18sp"
                 android:layout_marginStart="15dp"
                 android:textColor="@color/text_color_principal" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+    <LinearLayout
+        android:id="@+id/ivError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/Linearlayour"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_internet_off" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color_principal"
+            android:fontFamily="@font/asap"
+            android:text="@string/mensaje_error"
+            android:textAlignment="center"
+            android:textStyle="bold"/>
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

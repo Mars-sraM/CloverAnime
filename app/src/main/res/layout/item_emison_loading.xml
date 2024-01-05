@@ -18,7 +18,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="@dimen/ivEpisodeEmision_width"
             android:layout_height="@dimen/ivEpisodeEmision_height"
-            app:cardCornerRadius="16dp"
+            app:cardCornerRadius="8dp"
             app:cardBackgroundColor="#C8C8C9"/>
         <LinearLayout
             android:layout_width="0dp"

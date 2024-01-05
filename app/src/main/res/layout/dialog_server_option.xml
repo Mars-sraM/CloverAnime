@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="250dp"
+    android:layout_width="300dp"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/border_radius"
+    android:background="@drawable/dialog_background"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="35dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,29 +18,21 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/asap"
             android:text="@string/title_dialog_server"
+            android:padding="5dp"
+            android:textAlignment="center"
+            android:layout_marginStart="24dp"
             android:textColor="@color/text_color_principal"
             android:textSize="17sp"
             android:textStyle="bold"/>
-        <LinearLayout
-            android:id="@+id/btnInfoAnime"
+        <ImageView
+            android:id="@+id/btnCancelar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:background="@drawable/border_radius_detail"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_info"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/text_color_principal"
-                android:padding="3dp"
-                android:text="Info."/>
-        </LinearLayout>
+            android:src="@drawable/ic_close"/>
+
 
     </LinearLayout>
 
@@ -57,6 +49,7 @@
             android:textColor="@drawable/custom_text_color"
             app:buttonTint="@drawable/custom_color_icon"
             android:padding="10dp"
+            android:fontFamily="@font/asap"
             android:checked="true"
             android:text="@string/radioBottom_option1"
             android:textSize="15sp"
@@ -71,6 +64,7 @@
             android:textColor="@drawable/custom_text_color"
             app:buttonTint="@drawable/custom_color_icon"
             android:padding="10dp"
+            android:fontFamily="@font/asap"
             android:visibility="gone"
             android:text="@string/radioBottom_option2"
             android:textSize="15sp"/>
@@ -83,6 +77,7 @@
             android:textColor="@drawable/custom_text_color"
             app:buttonTint="@drawable/custom_color_icon"
             android:padding="10dp"
+            android:fontFamily="@font/asap"
             android:visibility="gone"
             android:text="@string/radioBottom_option3"
             android:textSize="15sp"/>
@@ -95,6 +90,7 @@
             android:textColor="@drawable/custom_text_color"
             app:buttonTint="@drawable/custom_color_icon"
             android:padding="10dp"
+            android:fontFamily="@font/asap"
             android:visibility="gone"
             android:text="@string/radioBottom_option4"
             android:textSize="15sp"/>
@@ -105,6 +101,7 @@
             android:button="@drawable/custom_icon_servers"
             android:textColor="@drawable/custom_text_color"
             app:buttonTint="@drawable/custom_color_icon"
+            android:fontFamily="@font/asap"
             android:visibility="gone"
             android:padding="10dp"
             android:text="@string/radioBottom_option5"
@@ -116,6 +113,7 @@
             android:button="@drawable/custom_icon_servers"
             android:textColor="@drawable/custom_text_color"
             app:buttonTint="@drawable/custom_color_icon"
+            android:fontFamily="@font/asap"
             android:padding="10dp"
             android:visibility="gone"
             android:text="@string/radioBottom_option6"
@@ -127,6 +125,7 @@
             android:button="@drawable/custom_icon_servers"
             android:textColor="@drawable/custom_text_color"
             app:buttonTint="@drawable/custom_color_icon"
+            android:fontFamily="@font/asap"
             android:visibility="gone"
             android:padding="10dp"
             android:text="@string/radioBottom_option7"
@@ -138,6 +137,7 @@
             android:button="@drawable/custom_icon_servers"
             android:textColor="@drawable/custom_text_color"
             app:buttonTint="@drawable/custom_color_icon"
+            android:fontFamily="@font/asap"
             android:padding="10dp"
             android:visibility="gone"
             android:text="@string/radioBottom_option8"
@@ -149,6 +149,7 @@
             android:button="@drawable/custom_icon_servers"
             android:textColor="@drawable/custom_text_color"
             app:buttonTint="@drawable/custom_color_icon"
+            android:fontFamily="@font/asap"
             android:padding="10dp"
             android:visibility="gone"
             android:text="@string/radioBottom_option9"
@@ -175,12 +176,13 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/btnCancelar"
+            android:id="@+id/btnInfoAnime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:padding="7dp"
-            android:text="@string/text_dialog_cancel"
+            android:fontFamily="@font/asap"
+            android:text="@string/text_dialog_info"
             android:textColor="@color/color_botoms_dialog"
             android:textSize="15sp"
             android:textStyle="bold" />
@@ -189,6 +191,7 @@
             android:id="@+id/btnVer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/asap"
             android:text="Ver"
             android:padding="7dp"
             android:textColor="@color/color_botoms_dialog"

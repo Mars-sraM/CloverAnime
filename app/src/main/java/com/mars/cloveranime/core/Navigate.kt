@@ -23,12 +23,11 @@ object Navigate {
         url: String,
         context: Context,
         clave:String, clave2: String,
-        option: Int,claveProvider: String, provider: String
+        videoUrl: String,claveProvider: String, provider: String
     ){
         val intent = Intent(context, PlayerActivity::class.java)
         intent.putExtra(clave, url)
-        intent.putExtra(clave2,option)
-        intent.putExtra(clave2,option)
+        intent.putExtra(clave2,videoUrl)
         intent.putExtra(claveProvider, provider)
         context.startActivity(intent)
     }

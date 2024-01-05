@@ -16,10 +16,10 @@
         android:label="fragment_emision"
         tools:layout="@layout/fragment_emision" />
     <fragment
-        android:id="@+id/calendarFragment"
-        android:name="com.mars.cloveranime.ui.view.fragments.CalendarFragment"
-        android:label="fragment_calendar"
-        tools:layout="@layout/fragment_calendar" />
+        android:id="@+id/directoryFragment"
+        android:name="com.mars.cloveranime.ui.view.fragments.DirectoryFragment"
+        android:label="fragment_directory"
+        tools:layout="@layout/fragment_directory" />
     <fragment
         android:id="@+id/myListFragment"
         android:name="com.mars.cloveranime.ui.view.fragments.MyListFragment"

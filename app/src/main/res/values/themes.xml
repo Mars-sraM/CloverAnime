@@ -24,4 +24,22 @@
     <style name="RadioButtonStyle" parent="Theme.AppCompat.DayNight">
         <item name="buttonIconTint">#ffffff</item>
     </style>
+    <style name="AppBottomSheetDialogTheme"
+        parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+    <style name="dropdown"
+        parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxStrokeColor">@color/Subtittle_color</item>
+        <item name="boxBackgroundColor">@color/background_color_app</item>
+        <item name="android:textColorHint">@color/text_color_principal</item>
+        <item name="hintTextColor">@color/text_color_principal</item>
+
+    </style>
+    <style name="AppModalStyle"
+        parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/background_sheet_dialog</item>
+    </style>
+
+
 </resources>

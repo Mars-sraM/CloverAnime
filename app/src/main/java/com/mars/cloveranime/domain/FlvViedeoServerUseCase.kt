@@ -1,9 +1,9 @@
 package com.mars.cloveranime.domain
 
 import com.mars.cloveranime.data.DetailFlvRepository
+import com.mars.cloveranime.data.model.AnimeVideoServer
 
 class FlvViedeoServerUseCase {
     val repository = DetailFlvRepository()
-    suspend  fun animeServer(url: String, index: Int): String = repository.getAnimesVideos(url, index)
-    suspend  fun serverSize(url: String): Int = repository.getServerSize(url)
+    suspend  fun animeServer(url: String): AnimeVideoServer = repository.getAnimesVideos(url)
 }

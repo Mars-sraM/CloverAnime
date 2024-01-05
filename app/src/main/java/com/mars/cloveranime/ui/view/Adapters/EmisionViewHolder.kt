@@ -16,7 +16,8 @@ class EmisionViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     @SuppressLint("SetTextI18n")
     fun bind(
         episode: CapEmisionModel,
-        onItemSelect: (AnimeUrl) -> Unit
+        onItemSelect: (AnimeUrl) -> Unit,
+        onItemSelectLong: (List<String>) -> Unit
 
     ) {
         binding.animeTittle.text = episode.name
@@ -27,6 +28,10 @@ class EmisionViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         binding.root.setOnClickListener {
             onItemSelect(episode.url)
+        }
+        binding.root.setOnLongClickListener {
+            onItemSelectLong(listOf(episode.url.animeUrl, episode.type))
+            true
         }
     }
 }

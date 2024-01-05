@@ -9,5 +9,6 @@ class FlvDetailUseCase {
     val repository = DetailFlvRepository()
     suspend  fun detailImageUseCase(url: String): DetailImageModel? = repository.getAnimesImages(url)
     suspend  fun detailPart1UseCase(url: String): DetailAnimeModel? = repository.getDetailAnimesPart1(url)
+    suspend  fun detailAnimeModalDialogUseCase(url: String): DetailAnimeModelPart2? = repository.getDeatilAnimeModalDialog(url)
     suspend operator fun invoke(url: String): DetailAnimeModelPart2? = repository.getDetailAnimesPart2(url)
 }

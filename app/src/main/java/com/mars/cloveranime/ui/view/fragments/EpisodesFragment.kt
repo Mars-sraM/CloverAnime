@@ -32,6 +32,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mars.cloveranime.R
 import com.mars.cloveranime.core.FragmentsMethods
 import com.mars.cloveranime.core.Navigate
+import com.mars.cloveranime.data.model.Episodes
+import com.mars.cloveranime.data.model.Server
 import com.mars.cloveranime.databinding.FragmentEpisodesBinding
 import com.mars.cloveranime.ui.view.Adapters.EpisodesAdapter
 import com.mars.cloveranime.ui.view.AnimeDetailActivity
@@ -67,10 +69,13 @@ class EpisodesFragment : Fragment() {
         val intent: Intent = requireActivity().intent
         val url: String = intent.getStringExtra(AnimeDetailActivity.EXTRA_ID).orEmpty()
         val provider: String = intent.getStringExtra(AnimeDetailActivity.EXTRA_PROVIDER).orEmpty()
+        var episodeList = emptyList<Episodes>()
 
         episodesViewModel.addEpisodesPage1(url, provider)
         episodesViewModel.episodeslModel.observe(viewLifecycleOwner, Observer { episodes ->
             if (!episodes.isNullOrEmpty()) {
+                episodeList = episodes
+                binding.ivError.isVisible = false
                 adapter = EpisodesAdapter(episodes) { showDialog(it, provider) }
                 binding.rvEpisodes.setHasFixedSize(true)
                 val layoutManager = LinearLayoutManager(context)
@@ -78,15 +83,19 @@ class EpisodesFragment : Fragment() {
                 binding.rvEpisodes.adapter = adapter
                 FragmentsMethods.reverseOrder(binding.ivRevers, adapter, episodes)
                 binding.ivRevers.text = "Episodios: ${episodes.size}"
+            }else{
+                episodeList = emptyList()
             }
         })
-
+        episodesViewModel.isloading.observe(viewLifecycleOwner, Observer {
+            binding.linearMensage.isVisible = !it
+            binding.rvEpisodes.isVisible = it
+            binding.ivError.isVisible = if (episodeList.isEmpty()){ it }else{ false }
+        })
         binding.ivRegresar.setOnClickListener {
             fragmentManager?.beginTransaction()?.remove(this)?.commit()
         }
-        episodesViewModel.isloading.observe(viewLifecycleOwner, Observer {
-            binding.linearMensage.isVisible = it
-        })
+
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object :
             OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
@@ -99,95 +108,103 @@ class EpisodesFragment : Fragment() {
         val dialog = Dialog(context)
         dialog.setContentView(R.layout.dialog_server_option)
         dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        showOptions(url, dialog, provider)
-        FragmentsMethods.hideOption(dialog)
         val btnVer: TextView = dialog.findViewById(R.id.btnVer)
-        val btnCancel: TextView = dialog.findViewById(R.id.btnCancelar)
+        val btnCancel: ImageView = dialog.findViewById(R.id.btnCancelar)
         val rgOptions: RadioGroup = dialog.findViewById(R.id.rgOptions)
-        val btnInfoAnime: LinearLayout = dialog.findViewById(R.id.btnInfoAnime)
-
+        val btnInfoAnime: TextView = dialog.findViewById(R.id.btnInfoAnime)
         if (context == requireContext()) {
             btnInfoAnime.isVisible = false
         }
+        detailViewModel.addVideosEpisodes(url, provider)
+        detailViewModel.episodesVideoModel.observe(viewLifecycleOwner, Observer { servers ->
+            if(servers != null){
+                val size = servers.sizeServers
+                showOption(size, dialog, servers.listServer)
+                btnVer.setOnClickListener {
+                    val selectedId = rgOptions.checkedRadioButtonId
+                    val selectedRadioButton: RadioButton = rgOptions.findViewById(selectedId)
+                    when (selectedRadioButton.id) {
+                        R.id.rbOpcion1 -> Navigate.navigateActivityPlayer(
+                            url,
+                            requireContext(), EXTRA_URL, EXTRA_OPTION, servers.listServer[indexServer(size, 0)].linkVideo,
+                            PlayerActivity.EXTRA_PROVIDER, provider
+                        )
 
-        btnVer.setOnClickListener {
-            val selectedId = rgOptions.checkedRadioButtonId
-            val selectedRadioButton: RadioButton = rgOptions.findViewById(selectedId)
-            when (selectedRadioButton.text) {
-                getString(R.string.radioBottom_option1) -> Navigate.navigateActivityPlayer(
-                    url,
-                    requireContext(), EXTRA_URL, EXTRA_OPTION, 0,
-                    PlayerActivity.EXTRA_PROVIDER, provider
-                )
+                        R.id.rbOpcion2 -> Navigate.navigateActivityPlayer(
+                            url,
+                            requireContext(), EXTRA_URL, EXTRA_OPTION, servers.listServer[indexServer(size, 1)].linkVideo,
+                            PlayerActivity.EXTRA_PROVIDER, provider
+                        )
 
-                getString(R.string.radioBottom_option2) -> Navigate.navigateActivityPlayer(
-                    url,
-                    requireContext(), EXTRA_URL, EXTRA_OPTION, 1,
-                    PlayerActivity.EXTRA_PROVIDER, provider
-                )
+                        R.id.rbOpcion3 -> Navigate.navigateActivityPlayer(
+                            url,
+                            requireContext(), EXTRA_URL, EXTRA_OPTION, servers.listServer[indexServer(size, 2)].linkVideo,
+                            PlayerActivity.EXTRA_PROVIDER, provider
+                        )
+                        R.id.rbOpcion4 -> Navigate.navigateActivityPlayer(
+                            url,
+                            requireContext(), EXTRA_URL, EXTRA_OPTION, servers.listServer[indexServer(size, 3)].linkVideo,
+                            PlayerActivity.EXTRA_PROVIDER, provider
+                        )
+                        R.id.rbOpcion5 -> Navigate.navigateActivityPlayer(
+                            url,
+                            requireContext(), EXTRA_URL, EXTRA_OPTION, servers.listServer[indexServer(size, 4)].linkVideo,
+                            PlayerActivity.EXTRA_PROVIDER, provider
+                        )
+                        R.id.rbOpcion6 -> Navigate.navigateActivityPlayer(
+                            url,
+                            requireContext(), EXTRA_URL, EXTRA_OPTION, servers.listServer[indexServer(size, 5)].linkVideo,
+                            PlayerActivity.EXTRA_PROVIDER, provider
+                        )
+                        R.id.rbOpcion7 -> Navigate.navigateActivityPlayer(
+                            url,
+                            requireContext(), EXTRA_URL, EXTRA_OPTION, servers.listServer[indexServer(size, 6)].linkVideo,
+                            PlayerActivity.EXTRA_PROVIDER, provider
+                        )
+                        R.id.rbOpcion8 -> Navigate.navigateActivityPlayer(
+                            url,
+                            requireContext(), EXTRA_URL, EXTRA_OPTION, servers.listServer[indexServer(size, 7)].linkVideo,
+                            PlayerActivity.EXTRA_PROVIDER, provider
+                        )
+                        R.id.rbOpcion9 -> Navigate.navigateActivityPlayer(
+                            url,
+                            requireContext(), EXTRA_URL, EXTRA_OPTION, servers.listServer[indexServer(size, 8)].linkVideo,
+                            PlayerActivity.EXTRA_PROVIDER, provider
+                        )
+                    }
+                    dialog.dismiss()
 
-                getString(R.string.radioBottom_option3) -> Navigate.navigateActivityPlayer(
-                    url,
-                    requireContext(), EXTRA_URL, EXTRA_OPTION, 2,
-                    PlayerActivity.EXTRA_PROVIDER, provider
-                )
-                getString(R.string.radioBottom_option4) -> Navigate.navigateActivityPlayer(
-                    url,
-                    requireContext(), EXTRA_URL, EXTRA_OPTION, 3,
-                    PlayerActivity.EXTRA_PROVIDER, provider
-                )
-                getString(R.string.radioBottom_option5) -> Navigate.navigateActivityPlayer(
-                    url,
-                    requireContext(), EXTRA_URL, EXTRA_OPTION, 4,
-                    PlayerActivity.EXTRA_PROVIDER, provider
-                )
-                getString(R.string.radioBottom_option6) -> Navigate.navigateActivityPlayer(
-                    url,
-                    requireContext(), EXTRA_URL, EXTRA_OPTION, 5,
-                    PlayerActivity.EXTRA_PROVIDER, provider
-                )
-                getString(R.string.radioBottom_option7) -> Navigate.navigateActivityPlayer(
-                    url,
-                    requireContext(), EXTRA_URL, EXTRA_OPTION, 6,
-                    PlayerActivity.EXTRA_PROVIDER, provider
-                )
-                getString(R.string.radioBottom_option8) -> Navigate.navigateActivityPlayer(
-                    url,
-                    requireContext(), EXTRA_URL, EXTRA_OPTION, 7,
-                    PlayerActivity.EXTRA_PROVIDER, provider
-                )
-                getString(R.string.radioBottom_option9) -> Navigate.navigateActivityPlayer(
-                    url,
-                    requireContext(), EXTRA_URL, EXTRA_OPTION, 8,
-                    PlayerActivity.EXTRA_PROVIDER, provider
-                )
+                }
             }
-            dialog.dismiss()
-
-        }
-
+        })
         dialog.show()
         btnCancel.setOnClickListener {
             dialog.dismiss()
         }
     }
-    private fun showOptions(url: String, dialog: Dialog, provider: String){
 
-        detailViewModel.addSizeServers(url,provider)
-        detailViewModel.sizeServersVideoModel.observe(
-            viewLifecycleOwner,
-            Observer { size ->
-                println(size)
-                FragmentsMethods.serverOption(size, dialog)
-            }
-        )
+    private fun showOption(size: Int, dialog: Dialog, list: MutableList<Server>){
+        detailViewModel.isloading.observe(viewLifecycleOwner, Observer {
+            FragmentsMethods.hideOption(dialog, it)
+            FragmentsMethods.serverOption(size, dialog, list, it)
+        })
     }
+
+    private fun indexServer(size: Int, index: Int): Int {
+        return if (index <= size && index > 0) {
+            size - (size - index)
+        } else if (index == 0) {
+            0
+        } else {
+            0
+        }
+    }
+
     @SuppressLint("ResourceAsColor")
     override fun onAttach(context: Context) {
         addSystemUI(context)
         super.onAttach(context)
     }
-
 
     override fun onDetach() {
         val window: Window = requireActivity().window

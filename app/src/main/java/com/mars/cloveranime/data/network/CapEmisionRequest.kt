@@ -45,11 +45,12 @@ class CapEmisionRequest {
                     .select("button")
                     .eq(i)
                     .text()
-                val url1 = capUrl.replace("ver", "anime")
-                val parts = url1.split("episodio");
-                val animeUrl = parts[0] + "sub-espanol"
-                //Log.i("data", "img: $imgUrl, title: $title, animeUrl: $animeUrl")
 
+                val url1 = capUrl.replace("/ver/", "/anime/")
+                //val parts = url1.split("-episodio-");
+                //val animeUrl = parts[0] + "-sub-espanol"
+                val animeUrl = url1.replace("episodio-$capituloNo", "sub-espanol")
+                Log.i("data", "img: $imgUrl, title: $title, animeUrl: $animeUrl")
                 list.add(CapEmisionModel(title, imgUrl, capituloNo, animeType, AnimeUrl( capUrl, animeUrl)))
             }
 

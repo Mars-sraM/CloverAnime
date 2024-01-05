@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@color/background_color_app"
+    android:orientation="vertical"
+    tools:context=".ui.view.fragments.DirectoryFragment"
+    tools:ignore="MissingDefaultResource">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/ivSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:padding="10dp"
+            android:src="@drawable/ic_search"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/icon_color" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/asap"
+            android:gravity="center"
+            android:text="@string/menu_item_directorio"
+            android:textAlignment="center"
+            android:textColor="@color/text_color_principal"
+            android:textSize="@dimen/favoritesTittle"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ivSearch"
+            app:layout_constraintStart_toEndOf="@id/ivFilterGenres"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivFilterGenres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_filter_list"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/linearGenres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="8dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvProvider"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="5dp"
+            android:drawablePadding="6dp"
+            android:fontFamily="@font/asap"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_color_principal"
+            android:textSize="@dimen/detailsecondText"
+            tools:drawableStartCompat="@drawable/ic_monos_chinos"
+            tools:text="Monoschinos" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/dropdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            app:endIconTint="@color/text_color_principal">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/dropdownGenres"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:dropDownHeight="400dp"
+                android:fontFamily="@font/asap"
+                android:hint="@string/label_dropdown"
+                android:inputType="none"
+                android:textColor="@color/text_color_principal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAnimes"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_calendar" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shimmer_auto_start="true">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/rvDirectoryLoading"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include layout="@layout/item_directory_loading" />
+
+                <include layout="@layout/item_directory_loading" />
+
+                <include layout="@layout/item_directory_loading" />
+
+                <include layout="@layout/item_directory_loading" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <LinearLayout
+            android:id="@+id/ivError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_internet_off" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/asap"
+                android:text="@string/mensaje_error"
+                android:textAlignment="center"
+                android:textColor="@color/text_color_principal"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fabCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/Subtittle_color"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="Categoría"
+            android:textColor="#444444"
+            android:fontFamily="@font/asap"
+            android:visibility="gone"
+            app:icon="@drawable/ic_list_episodes"
+            app:iconTint="#444444"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fabMovie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/Subtittle_color"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="Pelicula"
+            app:icon="@drawable/ic_video_library"
+            app:iconTint="#444444"
+            android:textColor="#444444"
+            android:fontFamily="@font/asap"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/fabAnime"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fabSpecial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/Subtittle_color"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="Especial"
+            app:icon="@drawable/ic_video_library"
+            app:iconTint="#444444"
+            android:textColor="#444444"
+            android:fontFamily="@font/asap"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/fabMovie"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fabOva"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/Subtittle_color"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="Ova"
+            app:icon="@drawable/ic_video_library"
+            app:iconTint="#444444"
+            android:textColor="#444444"
+            android:fontFamily="@font/asap"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/fabCategory"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fabAnime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/Subtittle_color"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="Anime"
+            app:icon="@drawable/ic_video_library"
+            app:iconTint="#444444"
+            android:textColor="#444444"
+            android:fontFamily="@font/asap"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/fabOva"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/ivMasAnimes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="#D9C8C8C9"
+            app:cardCornerRadius="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:rotation="270"
+                android:src="@drawable/ic_regresar" />
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

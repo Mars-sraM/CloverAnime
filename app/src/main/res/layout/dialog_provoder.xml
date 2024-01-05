@@ -1,20 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="250dp"
+    android:layout_width="300dp"
     android:layout_height="wrap_content"
-    android:background="@drawable/border_radius"
+    android:background="@drawable/dialog_background"
     android:orientation="vertical"
-    android:padding="20dp">
-    <TextView
+    android:padding="35dp">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/title_dialog_provider"
-        android:textColor="@color/text_color_principal"
-        android:textAlignment="center"
-        android:padding="5dp"
-        android:textSize="17sp"
-        android:textStyle="bold"/>
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="5dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/asap"
+            android:text="@string/title_dialog_provider"
+            android:padding="5dp"
+            android:textAlignment="center"
+            android:layout_marginStart="24dp"
+            android:textColor="@color/text_color_principal"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <ImageView
+            android:id="@+id/btnCancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:src="@drawable/ic_close"/>
+
+
+    </LinearLayout>
     <RadioGroup
         android:id="@+id/rgOptions"
         android:layout_width="match_parent"
@@ -27,6 +45,7 @@
             android:button="@drawable/ic_monos_chinos"
             android:padding="14dp"
             android:textSize="15sp"
+            android:fontFamily="@font/asap"
             android:text="@string/radioBottom_monoschinos"
             android:textColor="@drawable/custom_text_color"
             android:theme="@style/RadioButtonStyle"
@@ -37,22 +56,12 @@
             android:layout_height="wrap_content"
             android:button="@drawable/ic_animeflv"
             android:padding="14dp"
+            android:fontFamily="@font/asap"
             android:backgroundTint="#424242"
             android:textSize="15sp"
             android:text="@string/radioBottom_animeflv"
             android:textColor="@drawable/custom_text_color"
             android:theme="@style/RadioButtonStyle"/>
     </RadioGroup>
-
-    <TextView
-        android:layout_gravity="end"
-        android:id="@+id/btnCancelar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="7dp"
-        android:text="@string/text_dialog_cancel"
-        android:textColor="@color/color_botoms_dialog"
-        android:textSize="15sp"
-        android:textStyle="bold" />
 
 </LinearLayout>

@@ -93,6 +93,24 @@ class DetailAnimeRequest {
 
         return animeDetailPart2
     }
+    fun detailAnimeModalDialog(url: String): DetailAnimeModelPart2 {
+        try {
+            val doc = Jsoup.connect(url).header("Cache-Control", "no-cache").get()
+
+            val elements: Elements = doc.select("div.heroarea")
+            val imageUrl = doc.getElementsByClass("chapterpic")
+                .select("img").attr("src")
+            val title = elements.select("h1.mobh1").text()
+            val date = elements.select("div.chapterdetls2").select("p").text()
+
+            animeDetailPart2 = DetailAnimeModelPart2(title,imageUrl, date, url)
+            //Log.i("data", "img: ${""}, title: $date, animeUrl: $url")
+        } catch (e: IOException) {
+            print(e)
+        }
+
+        return animeDetailPart2
+    }
 
     private fun existUrl(url: String): Boolean {
         var urlExists = true
@@ -121,6 +139,12 @@ class DetailAnimeRequest {
     suspend fun requestDeatilAnimePart2(url: String): DetailAnimeModelPart2 {
         return withContext(Dispatchers.IO) {
             val animesPart2 = detailAnimePart2(url)
+            animesPart2
+        }
+    }
+    suspend fun requestDeatilAnimeModalDialog(url: String): DetailAnimeModelPart2 {
+        return withContext(Dispatchers.IO) {
+            val animesPart2 = detailAnimeModalDialog(url)
             animesPart2
         }
     }

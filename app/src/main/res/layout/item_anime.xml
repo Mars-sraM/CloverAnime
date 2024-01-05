@@ -6,19 +6,20 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="4dp"
+    android:minHeight="@dimen/ivEpisodeEmision_height"
     android:layout_marginVertical="10dp"
     android:orientation="horizontal"
     android:background="@drawable/border_radius">
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="16dp">
+        android:layout_height="match_parent"
+        app:cardCornerRadius="8dp">
 
         <ImageView
             android:id="@+id/ivAnimePortada"
             android:layout_width="@dimen/ivEpisodeEmision_width"
-            android:layout_height="@dimen/ivEpisodeEmision_height"
+            android:layout_height="match_parent"
             android:scaleType="centerCrop"
             android:background="@color/black">
 
@@ -29,6 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_gravity="center"
         android:gravity="center_vertical"
         android:orientation="vertical">
 
@@ -36,6 +38,7 @@
             android:id="@+id/tvCapNumero"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/asap"
             android:layout_marginHorizontal="4dp"
             android:textColor="@color/Subtittle_color"
             android:textSize="@dimen/tvCapNumeroType"
@@ -49,6 +52,7 @@
             android:layout_marginVertical="8dp"
             android:layout_marginEnd="50dp"
             android:ellipsize="end"
+            android:fontFamily="@font/asap"
             android:maxLines="2"
             android:textColor="@color/text_color_principal"
             android:textSize="@dimen/animeTittle"
@@ -73,6 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:textSize="@dimen/tvCapNumeroType"
+                android:fontFamily="@font/asap"
                 android:textColor="@color/Subtittle_color"
                 tools:text="Anime" />
 

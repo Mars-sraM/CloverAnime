@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="350dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:background="@drawable/background_sheet_dialog"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingHorizontal="10dp">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_remove"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/btnExit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="5dp"
+        android:src="@drawable/ic_close"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="124dp"
+        android:layout_height="164dp"
+        app:cardBackgroundColor="@color/background_color_app"
+        app:cardCornerRadius="8dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView">
+
+        <ImageView
+            android:id="@+id/ivAnimeImg"
+            android:layout_width="124dp"
+            android:layout_height="164dp"
+            android:scaleType="centerCrop"
+            android:visibility="gone"
+            tools:background="@color/black" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:shimmer_auto_start="true">
+
+            <View
+                android:id="@+id/loadingAnimeImg"
+                android:layout_width="124dp"
+                android:layout_height="164dp"
+                android:background="@color/shimmer_color"/>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvAnimeName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/text_color_principal"
+        android:textSize="@dimen/detailAnimeName"
+        android:fontFamily="@font/asap"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@id/imageView"
+        tools:text="Shimoneta to Iu Gainen ga Sonzai Shinai Taikutsu na Sekai" />
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerName"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@id/imageView"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        app:shimmer_auto_start="true">
+        <View
+            android:id="@+id/loadingAnimeName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/shimmer_color"/>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+    <TextView
+        android:id="@+id/tvAnimeType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@id/tvAnimeName"
+        tools:layout_constraintTop_toBottomOf="@id/shimmerName"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/asap"
+        android:maxLines="2"
+        android:textColor="@color/text_color_principal"
+        android:textSize="@dimen/detailsecondText"
+        android:visibility="gone"
+        tools:text="Anime" />
+    <TextView
+        android:id="@+id/tvSynapsis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp"
+        android:textColor="@color/text_color_principal"
+        android:visibility="gone"
+        android:fontFamily="@font/asap"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardView"
+        tools:text="rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerSynopsis"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardView"
+        android:layout_marginTop="10dp"
+        app:shimmer_auto_start="true">
+        <View
+            android:id="@+id/loadingAnimeSynopsis"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/shimmer_color"/>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <Button
+        android:id="@+id/infoBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/color_botoms"
+        android:drawableLeft="@drawable/ic_info"
+        android:text="Ver mas Informacion"
+        android:textColor="@color/text_color_principal"
+        android:textSize="@dimen/detailsecondText"
+        android:fontFamily="@font/asap"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSynapsis"
+        app:layout_constraintVertical_bias="0"
+        tools:layout_constraintTop_toBottomOf="@id/shimmerSynopsis" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

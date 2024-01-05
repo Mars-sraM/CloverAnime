@@ -4,9 +4,12 @@ package com.mars.cloveranime.ui.viewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.mars.cloveranime.data.model.AnimeVideoServer
 import com.mars.cloveranime.data.model.DetailAnimeModel
 import com.mars.cloveranime.data.model.DetailAnimeModelPart2
 import com.mars.cloveranime.data.model.DetailImageModel
+import com.mars.cloveranime.data.network.DetailAnimeRequest
+import com.mars.cloveranime.data.network.FlvDetailAnimeRequest
 import com.mars.cloveranime.data.network.VideoEpisodesRequest
 import com.mars.cloveranime.domain.DetailUseCase
 import com.mars.cloveranime.domain.FlvDetailUseCase
@@ -20,8 +23,7 @@ class DetailViewModel: ViewModel() {
     val detailModel = MutableLiveData<DetailAnimeModel?>()
     val detailImageModel = MutableLiveData<DetailImageModel?>()
     val detailModelPart2 = MutableLiveData<DetailAnimeModelPart2?>()
-    val episodesVideoModel = MutableLiveData<String>()
-    val sizeServersVideoModel = MutableLiveData<Int>()
+    val episodesVideoModel = MutableLiveData<AnimeVideoServer?>()
     val isloading = MutableLiveData<Boolean>()
 
     val detailUseCase = DetailUseCase()
@@ -78,35 +80,44 @@ class DetailViewModel: ViewModel() {
 
         }
     }
-
-    fun addVideosEpisodes(url: String, index: Int, provider: String) {
+    fun addDetailModalDialog(url: String, provider: String){
         viewModelScope.launch {
             when(provider){
                 "MonosChinos" -> {
-                    val videos = videoServerUseCase(url, index)
-                    episodesVideoModel.postValue(videos)
+                    isloading.postValue(false)
+                    val animeDetail = detailUseCase.detailAnimeModalDialogUseCase(url)
+                    detailModelPart2.postValue(animeDetail)
+                    isloading.postValue(true)
                 }
                 "AnimeFLV" -> {
-                    val videos = flvVideoServerUseCase.animeServer(url, index)
-                    episodesVideoModel.postValue(videos)
+                    isloading.postValue(false)
+                    val animeDetail = detailFlvUseCase.detailAnimeModalDialogUseCase(url)
+                    detailModelPart2.postValue(animeDetail)
+                    isloading.postValue(true)
                 }
             }
 
         }
     }
-    fun addSizeServers(url: String, provider: String) {
+
+    fun addVideosEpisodes(url: String, provider: String) {
         viewModelScope.launch {
             when(provider){
                 "MonosChinos" -> {
-                    val videos = network.serverSize(url)
-                    sizeServersVideoModel.postValue(videos)
+                    isloading.postValue(true)
+                    val videos = videoServerUseCase(url)
+                    episodesVideoModel.postValue(videos)
+                    isloading.postValue(false)
                 }
                 "AnimeFLV" -> {
-                    val videos = flvVideoServerUseCase.serverSize(url)
-                    sizeServersVideoModel.postValue(videos)
+                    isloading.postValue(true)
+                    val videos = flvVideoServerUseCase.animeServer(url)
+                    episodesVideoModel.postValue(videos)
+                    isloading.postValue(false)
                 }
             }
 
         }
     }
+
 }

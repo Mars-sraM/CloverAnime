@@ -13,7 +13,7 @@ import com.mars.cloveranime.data.model.SearchAnimeModel
 class EmisionAdapter(
     private var animesList: MutableList<CapEmisionModel>,
     private val onItemSelect: (AnimeUrl) -> Unit,
-    //private val onItemAnimeSelect: (String) -> Unit
+    private val onItemSelectLong: (List<String>) -> Unit
 ) : RecyclerView.Adapter<EmisionViewHolder>() {
     fun updateList(animeList: List<CapEmisionModel>) {
         this.animesList = animeList.toMutableList()
@@ -28,6 +28,6 @@ class EmisionAdapter(
 
     override fun onBindViewHolder(holder: EmisionViewHolder, position: Int) {
         val item = animesList[position]
-        holder.bind(item, onItemSelect)
+        holder.bind(item, onItemSelect, onItemSelectLong)
     }
 }

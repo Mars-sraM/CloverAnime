@@ -51,6 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/detailAnimeImage_width"
             android:layout_marginEnd="5dp"
+            android:fontFamily="@font/asap"
             android:ellipsize="end"
             android:maxLines="2"
             android:textColor="@color/text_color_principal"
@@ -63,6 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/detailAnimeImage_width"
+            android:fontFamily="@font/asap"
             android:layout_marginTop="5dp"
             android:ellipsize="end"
             android:maxLines="2"
@@ -180,6 +182,7 @@
                     android:backgroundTint="@color/color_botoms"
                     android:drawableLeft="@drawable/ic_add_anime"
                     android:text="@string/text_buttom_add"
+                    android:fontFamily="@font/asap"
                     android:textColor="@color/text_color_principal"
                     android:textSize="@dimen/detailsecondText" />
 
@@ -192,6 +195,7 @@
                     android:backgroundTint="@color/color_botoms"
                     android:drawableLeft="@drawable/ic_list_episodes"
                     android:text="@string/text_buttom_episodes"
+                    android:fontFamily="@font/asap"
                     android:textColor="@color/text_color_principal"
                     android:textSize="@dimen/detailsecondText">
 
@@ -218,6 +222,7 @@
                 android:layout_marginHorizontal="13dp"
                 android:paddingVertical="8dp"
                 android:text="@string/title_detalles"
+                android:fontFamily="@font/asap"
                 android:textColor="@color/text_color_principal"
                 android:textSize="@dimen/detailDetalles"
                 android:textStyle="bold"
@@ -260,6 +265,7 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/text_color_principal"
                             android:textSize="@dimen/detailsecondText"
+                            android:fontFamily="@font/asap"
                             tools:text="3.4" />
 
                     </LinearLayout>
@@ -288,6 +294,7 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/text_color_principal"
                             android:textSize="@dimen/detailsecondText"
+                            android:fontFamily="@font/asap"
                             tools:text="Anime" />
 
                     </LinearLayout>
@@ -316,6 +323,7 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/text_color_principal"
                             android:textSize="@dimen/detailsecondText"
+                            android:fontFamily="@font/asap"
                             tools:text="Anime" />
 
                     </LinearLayout>
@@ -327,7 +335,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvCategoriesDatail"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/detailGenres_height"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="13dp"
                 android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -343,6 +351,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="13dp"
                 android:layout_marginVertical="8dp"
+                android:textSize="@dimen/detailsecondText"
+                android:fontFamily="@font/asap"
                 android:textColor="@color/text_color_principal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

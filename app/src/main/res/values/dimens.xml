@@ -20,13 +20,11 @@
     <dimen name="detailLinear1_height">90dp</dimen>
     <dimen name="detailAnimeName">15sp</dimen>
     <dimen name="detailsecondText">13sp</dimen>
-    <dimen name="detailTextGenres">13sp</dimen>
     <dimen name="detailAnimeImage_width">84dp</dimen>
     <dimen name="detailAnimeImage_height">124dp</dimen>
     <dimen name="linearBottomsPadding">4dp</dimen>
     <dimen name="detailDetalles">16sp</dimen>
     <dimen name="detailGenres_height">30dp</dimen>
-    <dimen name="detailSynapses">13sp</dimen>
     <dimen name="detailSynapses_height">180dp</dimen>
 
     <dimen name="episodeImage_width">110dp</dimen>

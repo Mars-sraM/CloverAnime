@@ -1,5 +1,6 @@
 package com.mars.cloveranime.data
 
+import com.mars.cloveranime.data.model.AnimeVideoServer
 import com.mars.cloveranime.data.model.DetailAnimeModel
 import com.mars.cloveranime.data.model.DetailAnimeModelPart2
 import com.mars.cloveranime.data.model.DetailImageModel
@@ -23,8 +24,13 @@ class DetailAnimeRepository {
         return result
     }
 
-    suspend fun getAnimesVideos(url:String, index: Int): String {
-        val result = jsoupVideoResponse.requesvideoEpisodes(url, index)
+    suspend fun getAnimesVideos(url:String): AnimeVideoServer {
+        val result = jsoupVideoResponse.requesvideoEpisodes(url)
+        return result
+    }
+
+    suspend fun getDeatilAnimeModalDialog(url:String): DetailAnimeModelPart2 {
+        val result = jsoupResponse.requestDeatilAnimeModalDialog(url)
         return result
     }
 }

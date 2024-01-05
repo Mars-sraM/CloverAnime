@@ -109,7 +109,7 @@ class AnimeDetailActivity : AppCompatActivity() {
         detailViewModel.addDetail(url, provider)
         detailViewModel.detailModel.observe(this, Observer { detailAnime ->
             if (detailAnime != null) {
-                binding.tvScore.text = detailAnime.detailScore
+                binding.tvScore.text = detailAnime.detailScore.ifEmpty { "0.0" }
                 binding.tvStatus.text = detailAnime.detailStatus
                 binding.tvType.text = detailAnime.detailType
                 //binding.tvSynapsis.movementMethod = ScrollingMovementMethod()

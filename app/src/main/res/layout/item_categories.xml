@@ -19,7 +19,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="Categories"
-            android:textSize="@dimen/detailTextGenres"
+            android:fontFamily="@font/asap"
+            android:textSize="@dimen/detailsecondText"
             android:textColor="@color/text_color_principal"
             android:padding="5dp"/>
     </LinearLayout>
